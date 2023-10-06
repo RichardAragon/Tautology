@@ -1,0 +1,19 @@
+def is_tautological(formula):
+  if isinstance(formula, LogicalAxiom):
+    return True
+  elif isinstance(formula, LogicalContradiction):
+    return False
+  elif isinstance(formula, LogicalImplication):
+    return is_tautological(formula.antecedent) or not is_tautological(formula.consequent)
+  elif isinstance(formula, LogicalUniversalQuantifier):
+    for x in formula.domain_of_discourse:
+      if not is_tautological(formula.quantifier_body.substitute(x)):
+        return False
+    return True
+  elif isinstance(formula, LogicalExistentialQuantifier):
+    for x in formula.domain_of_discourse:
+      if is_tautological(formula.quantifier_body.substitute(x)):
+        return True
+    return False
+  else:
+    raise Exception("Invalid logical formula")
