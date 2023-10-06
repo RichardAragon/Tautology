@@ -1,7 +1,5 @@
 # Tautology
 Logical Tautology Boolean For LLMs
-Sure. Here is a different logical problem that can be solved using the logical inference algorithm library you provided:
-
 **Problem:** Determine whether a given logical formula is **tautological**. A tautological formula is one that is always true, regardless of the values of its variables.
 
 **Solution:**
